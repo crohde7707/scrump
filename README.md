@@ -1,4 +1,11 @@
 scrump
 ======
 
-scrum project management system for UTSA
+##scrum project management system for UTSA
+
+###Project Members:
+* Christopher Rohde
+* Joe Ybarra
+* ---
+* ---
+* ---
