@@ -1,7 +1,4 @@
-scrump
-======
-
-##scrum project management system for UTSA
+#scrump# - ####scrum project management system for UTSA####
 
 ###Project Members:
 * Christopher Rohde
