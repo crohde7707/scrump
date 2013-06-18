@@ -1,0 +1,205 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: spider_calendar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-01 20:28+0400\n"
+"PO-Revision-Date: 2012-10-24 14:06+0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-SearchPath-0: C:\\wamp\\www\\wordpress\\wp-content\\plugins\\Calendar\n"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:246
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:492
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:61
+msgid "Monday"
+msgstr "دوشنبه"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:253
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:496
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:64
+msgid "Tuesday"
+msgstr "سهشنبه"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:257
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:500
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:67
+msgid "Wednesday"
+msgstr "چهار شنبه"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:261
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:504
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:70
+msgid "Thursday"
+msgstr "پنج شنبه"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:265
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:508
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:73
+msgid "Friday"
+msgstr "جمعه"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:269
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:512
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:76
+msgid "Saturday"
+msgstr "روز شنبه"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:273
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:487
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:517
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:79
+msgid "Sunday"
+msgstr "یکشنبه"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:84
+msgid "January"
+msgstr "ژانویه"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:85
+msgid "February"
+msgstr "فوریه"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:86
+msgid "March"
+msgstr "مارس"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:87
+msgid "April"
+msgstr "آوریل"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:88
+msgid "May"
+msgstr "مه"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:89
+msgid "June"
+msgstr "ژوئن"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:90
+msgid "July"
+msgstr "جولای"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:91
+msgid "August"
+msgstr "اوت"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:92
+msgid "September"
+msgstr "سپتامبر"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:93
+msgid "October"
+msgstr "اکتبر"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:94
+msgid "November"
+msgstr "نوامبر"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:95
+msgid "December"
+msgstr "دسامبر"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:487
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:517
+msgid "Su"
+msgstr "به"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:492
+msgid "Mo"
+msgstr "به"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:496
+msgid "Tu"
+msgstr "به"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:500
+msgid "We"
+msgstr "به"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:504
+msgid "Th"
+msgstr "به"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:508
+msgid "Fr"
+msgstr "عه"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:512
+msgid "Sa"
+msgstr "به"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:665
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:697
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:729
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:765
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:798
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:829
+msgid "See more..."
+msgstr "مشاهده اطلاعات بیشتر ..."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:41
+msgid "First"
+msgstr "نخستین"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:44
+msgid "Second"
+msgstr "دوم"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:47
+msgid "Third"
+msgstr "سوم"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:50
+msgid "Fourth"
+msgstr "چهارم"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:53
+msgid "Last"
+msgstr "واپسین"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:342
+msgid "Date"
+msgstr "تاریخ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:351
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:354
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:369
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:372
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:375
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:378
+msgid "Repeat Every"
+msgstr "تکرار هر"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:351
+msgid "Day"
+msgstr "روز"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:354
+msgid "Week(s) on"
+msgstr "هفته در"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:369
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:372
+msgid "Month(s) on the"
+msgstr "ماه () در"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:375
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:378
+msgid "Year(s) in"
+msgstr "سال در"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:375
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:378
+msgid "on the"
+msgstr "در"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:381
+msgid "No Repeat"
+msgstr "بدون تکرار"
+

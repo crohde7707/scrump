@@ -1,0 +1,205 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: spider_calendar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-01 20:21+0400\n"
+"PO-Revision-Date: 2012-10-24 14:17+0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Indonesian\n"
+"X-Poedit-SearchPath-0: C:\\wamp\\www\\wordpress\\wp-content\\plugins\\Calendar\n"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:246
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:492
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:61
+msgid "Monday"
+msgstr "Senin"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:253
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:496
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:64
+msgid "Tuesday"
+msgstr "Selasa"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:257
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:500
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:67
+msgid "Wednesday"
+msgstr "Rabu"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:261
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:504
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:70
+msgid "Thursday"
+msgstr "Kamis"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:265
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:508
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:73
+msgid "Friday"
+msgstr "Jumat"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:269
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:512
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:76
+msgid "Saturday"
+msgstr "Sabtu"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/preview.php:273
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:487
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:517
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:79
+msgid "Sunday"
+msgstr "Minggu"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:84
+msgid "January"
+msgstr "Januari"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:85
+msgid "February"
+msgstr "Februari"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:86
+msgid "March"
+msgstr "Maret"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:87
+msgid "April"
+msgstr "April"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:88
+msgid "May"
+msgstr "Mei"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:89
+msgid "June"
+msgstr "Juni"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:90
+msgid "July"
+msgstr "Juli"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:91
+msgid "August"
+msgstr "Agustus"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:92
+msgid "September"
+msgstr "September"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:93
+msgid "October"
+msgstr "Oktober"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:94
+msgid "November"
+msgstr "November"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:95
+msgid "December"
+msgstr "Desember"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:487
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:517
+msgid "Su"
+msgstr "Mi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:492
+msgid "Mo"
+msgstr "Se"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:496
+msgid "Tu"
+msgstr "Sel"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:500
+msgid "We"
+msgstr "Ra"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:504
+msgid "Th"
+msgstr "Ka"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:508
+msgid "Fr"
+msgstr "Ju"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:512
+msgid "Sa"
+msgstr "Sa"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:665
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:697
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:729
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:765
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:798
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/bigcalendar.php:829
+msgid "See more..."
+msgstr "Lihat lebih banyak ..."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:41
+msgid "First"
+msgstr "Pertama"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:44
+msgid "Second"
+msgstr "kedua"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:47
+msgid "Third"
+msgstr "Ketiga"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:50
+msgid "Fourth"
+msgstr "Keempat"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:53
+msgid "Last"
+msgstr "Terakhir"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:342
+msgid "Date"
+msgstr "Tanggal"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:351
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:354
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:369
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:372
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:375
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:378
+msgid "Repeat Every"
+msgstr "Ulangi Setiap"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:351
+msgid "Day"
+msgstr "Hari"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:354
+msgid "Week(s) on"
+msgstr "Minggu (s) pada"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:369
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:372
+msgid "Month(s) on the"
+msgstr "Bulan (s) pada"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:375
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:378
+msgid "Year(s) in"
+msgstr "Tahun (s) dalam"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:375
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:378
+msgid "on the"
+msgstr "pada"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\Calendar/front_end/spidercalendarbig.php:381
+msgid "No Repeat"
+msgstr "Ulangi ada"
+

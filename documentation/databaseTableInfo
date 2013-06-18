@@ -1,0 +1,27 @@
+Defining the tables in the database
+
+Task table
+ -    Task
+   .	ID (unique)
+   .	Name 
+   .	Priority
+   .	Description
+   .	Owner ID ( working) can be NULL
+   .	Requester
+   .	Container ID
+   . 	Status ID
+   .	Points
+   .	Sprint ID
+
+Sprint table
+ -	Sprint
+   .	Sprint (ID)
+   .	Start Date
+   .	End Date
+   .	Description
+WP-users
+ -	Wp_users
+   .	Site_role
+   .	Project_role
+   .	Locked
+The panes on the page will be known as containers
