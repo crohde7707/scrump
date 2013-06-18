@@ -1,0 +1,1 @@
+{"ts":1371442098231,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"<?php\r\n$type = 'Core';\r\n$name = 'Courier';\r\n$up = -100;\r\n$ut = 50;\r\nfor($i=0;$i<=255;$i++)\r\n\t$cw[chr($i)] = 600;\r\n?>\r\n"]],"start1":0,"start2":0,"length1":0,"length2":118}]],"length":118}

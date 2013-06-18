@@ -1,0 +1,1 @@
+{"ts":1371442082187,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"1) Upload all files to the ftp\r\n\r\n2) CHMOD includes/config.php to 0777\r\n\r\n3) Run install.php"]],"start1":0,"start2":0,"length1":0,"length2":92}]],"length":92}
