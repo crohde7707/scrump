@@ -96,6 +96,11 @@ $admin_body_class .= ' no-customize-support';
 ?>
 </head>
 <body class="wp-admin wp-core-ui no-js <?php echo apply_filters( 'admin_body_class', '' ) . " $admin_body_class"; ?>">
+<style type="text/css">
+#logo {
+   float:left;
+}
+</style>
 <script type="text/javascript">
 	document.body.className = document.body.className.replace('no-js','js');
 </script>
@@ -122,7 +127,7 @@ if(strcmp($user_info-> rpr_type_of_account, "Admin") == 0) {
 if(strcmp($user_info-> rpr_type_of_account, "Admin") == 0) {
    do_action('in_admin_header');
 } else {?>
-<style type="text/css">html.wp-toolbar {padding-top:0px} #wpcontent {margin-left:0px;} .wrap {margin:100px 15px 0px 240px}</style>
+<style type="text/css">html.wp-toolbar {padding-top:0px} #wpcontent {margin-left:0px;} .wrap {margin:0 15px 0px 240px}</style>
 <?php } ?>
 
 <div id="wpbody">
@@ -151,4 +156,5 @@ if ( $parent_file == 'options-general.php' )
 	require(ABSPATH . 'wp-admin/options-head.php');
 
 ?>
+<div id="headWrap">
 <div id="logo"></div>

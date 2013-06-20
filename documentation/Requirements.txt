@@ -1,0 +1,62 @@
+Requirements:
+
+User Component:
+
+    -Define User roles (Admin, product owner, member or anonymous)
+	-Data: 
+		-Authentication
+		-User info (Name,role)
+		-Login History
+		-Status
+	-Function requirements:
+		-Login
+		-Logout
+		-Register
+		-Lock
+		-Unlock
+		-Change role
+		-Change password
+		-Edit user info
+Project Component:
+	-Data:
+		-Project Name
+		-Finish data
+		-Creator
+		-Container:
+			-Limbo
+			-Product backlog
+			-Sprints and their backlogs
+	-Function requirements:
+		-Create Project
+		-Open/Select Project
+		-Delete Project
+		-Edit Project
+		-Add/Remove Team members
+		-View project and its containers	
+
+
+Project Item Component:
+	-Data:
+		-Type (Story, bug, chore)
+		-Creator
+		-Comp time in hours
+		-Priority(numbered 1-5)
+		-Status(paused, in progress, completed, accepted, deleted)
+		-Name 
+		-Description
+		-Current Container
+		-Tasks
+		-Status change history
+Sprint Component:
+	-Data:
+		-Goal
+		-Established completion date
+		-Actual completion date
+		-Status
+		-Creator
+		-Items
+	-Function requirements:
+		-Create Sprint
+		-Finish Sprint
+		-Edit Sprint(current sprint only)
+		-View Sprint (and its items)

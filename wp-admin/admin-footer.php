@@ -17,7 +17,7 @@ if ( !defined('ABSPATH') )
 
 <div id="wpfooter">
 <?php do_action( 'in_admin_footer' ); ?>
-<p style="text-align:center">&copy; 2012 EHISYS<br />Powered by EHIS</p>
+<p style="text-align:center">&copy; 2013 Scrump<br />Powered by 1337 Programmingz</p>
 <div class="clear"></div>
 </div>
 <?php
