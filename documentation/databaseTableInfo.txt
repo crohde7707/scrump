@@ -1,27 +1,57 @@
 Defining the tables in the database
+    -updated 6/26/13
 
-Task table
- -    Task
+Item(story) table
+ -    wp_items
    .	ID (unique)
-   .	Name 
-   .	Priority
-   .	Description
-   .	Owner ID ( working) can be NULL
-   .	Requester
-   .	Container ID
-   . 	Status ID
-   .	Points
-   .	Sprint ID
+   .	name 
+   .	priority
+   .	description
+   .	owner_ID ( working) can be NULL
+   .	container_ID
+   . 	status
+   .	points
+   .	sprint_ID
+   .    proj_ID
+   .    type
+
+Tasks table (subtasks for each item)
+ -    wp_tasks
+   .    ID
+   .    item_ID
+   .    name
+   .    description
+   .    status
+
+Workers table (who's working on each item)
+ -    wp_workers 
+   .    ID
+   .    item_ID
+   .    user_ID
 
 Sprint table
- -	Sprint
-   .	Sprint (ID)
-   .	Start Date
-   .	End Date
-   .	Description
+ -	wp_sprint
+   .	ID
+   .	start_date
+   .	end_date
+   .	description
 WP-users
- -	Wp_users
-   .	Site_role
-   .	Project_role
-   .	Locked
+ -	wp_users
+   .	ID
+   .	user_nicename
+   .	user_email
+   .    site_role
+   .    locked
+WP-roles
+ -  wp_roles
+   .    ID
+   .    proj_ID
+   .    user_ID
+   .    role
+WP-proj
+ -  wp_proj
+   .    ID
+   .    owner_ID
+   .    name
+   .    description
 The panes on the page will be known as containers

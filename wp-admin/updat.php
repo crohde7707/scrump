@@ -8,7 +8,7 @@ require_once('./admin.php');
   
 
 
-include (ABSPATH . 'wp-admin/admin-header.php');
+//include (ABSPATH . 'wp-admin/admin-header.php');
 
 $today = current_time('mysql', 1);
 
@@ -411,103 +411,28 @@ $uid = $_POST['uid'];
 
 break;
 
-case 'makeAppt':
-   $uid = $_POST['pid'];
-   if(!$uid) {
-      $name = explode(" ", $_POST['patient']);
-      $queryPat = "SELECT user_id FROM wp_userchart where first_name = '$name[0]' AND last_name = '$name[1]'";
-      $uid = $wpdb->get_var($queryPat);
-      if(!$uid) {
-         $error = 1;
-         $emsg .= "Patient does not exist, ";
-      }
-   } else {
-      $queryPat = "SELECT * FROM wp_userchart where user_id = '$uid'";
-      $usr = $wpdb->get_row($queryPat);
-      $name = array($usr->first_name, $usr->last_name);
-   }
-   $docid = $_POST['did'];
-   $apptType = $_POST['apptType'];
-   if(!$apptType) {
-      $error = 1;
-      $emsg .= "You must pick an appointment type, ";
-   }
-   $year = $_POST['year'];
-   $month = $_POST['month'];
-   $date = $_POST['date'];
-   $hour = $_POST['hour'];
-   $min = $_POST['min'];
-   $stime = "$year-$month-$date $hour:$min:00";
-   $day = date("l", strtotime($stime));
-   if($day == "Saturday" || $day == "Sunday") {
-      $error = 1;
-      $emsg .= "Appointments are not available on weekends, ";
-   }
-   $reason = (isset($_POST['reason'])) ? $_POST['reason'] : $apptType;
-   switch($apptType) {
-      case "regular":
-         $add = 20;
-         break;
-
-      case "followup":
-         $add = 30; 
-         break;
-
-      case "physical":
-         $add = 40;
-         break;
-
-      default:
-      ;
-   }
-   $etime = date("Y-m-d H:i:s", strtotime("+ $add minute", strtotime($stime)));
-   $ntime = date("Y-m-d H:i:s", strtotime("-1 day", strtotime($stime)));
-   $starts_at = date("Y-m-d H:i:s", strtotime($stime));
-   $ends_at = date("Y-m-d H:i:s", strtotime($etime));
-   $notify = date("Y-m-d H:i:s", strtotime($ntime));
-   $curTime = date("Y-m-d H:i:s");
-   
-   if($starts_at > $curTime) {
-      $nAppt = "INSERT INTO wp_appt (user_id, doc_id, starts_at, ends_at, notify, day, month, date, year, hour, minute, first_name, last_name, type, reason) VALUES ('$uid', '$docid', '$starts_at', '$ends_at', '$notify', '$day', '$month', '$date', '$year', '$hour', '$min', '$name[0]', '$name[1]', '$apptType', '$reason')";
-   } else {
-      $error = 1;
-      $emsg .= "You can not make an appointment in the past";
-   }
-
-   if(!$error) {
-      $wpdb->query($nAppt);
-      $m = "New Appointment: $name[0] $name[1]";
-      $notice = "INSERT INTO wp_notices (user_id, msg, active, old, recycled, timestamp) VALUES ('$docid', '$m', 1, 0, 0, '$curTime')";
-      $wpdb->query($notice);
-   }
-?>
-<script type="text/javascript">
-   <?php if (!$error) { ?>
-       window.location.href='http://ehisys.org/wp-admin/makeAppt.php?docid=<?php echo "$docid";?>&action=success';
-   <?php } else { ?>
-       window.location.href='http://ehisys.org/wp-admin/makeAppt.php?docid=<?php echo "$docid";?>&emsg=<?php echo "$emsg";?>&action=fail';
-   <?php } ?>
-</script>
-<?php
-break;
-
 case 'sendMsg':
-$uid = $_POST['uid'];
+$uid = $_POST['user_id'];
 $msg = $_POST['msg'];
 $type = $_POST['type'];
-$recepient = explode(" ", $_POST['recepient']);
-$pQuery = "SELECT * FROM wp_userchart WHERE first_name = '$recepient[0]' AND last_name = '$recepient[1]'";
+$recepient = $_POST['recepient'];
+
+$pQuery = "select * from wp_users where user_email like '$recepient'";
 $user = $wpdb->get_row($pQuery);
+
+$eQuery = "select user_email from wp_users where ID = '$uid'";
+$sender = $wpdb->get_var($eQuery);
+
 $error = 0;
-if($user->user_id) {
+if($user->ID) {
    if(strcmp($type, "internal") == 0) {
       $curTime = date("Y-m-d H:i:s");
-      $message = "INSERT INTO wp_notices (user_id, msg, active, old, recycled, timestamp) VALUES ('$user->user_id', '$msg', 1, 0, 0, '$curTime')";
+      $message = "INSERT INTO wp_notices (user_id, sender, msg, active, old, recycled, timestamp) VALUES ('$user->ID', '$sender', '$msg', 1, 0, 0, '$curTime')";
       $wpdb->query($message);
    } else if ( strcmp($type, "external") == 0) {
       $to = $user->email;
-      $subject = "[EHIS] Message";
-      $headers = 'From: [EHIS] <internal@ehisys.org>' . "\r\n";
+      $subject = "[SCRUMP] Message";
+      $headers = 'From: [SCRUMP] <internal@ehisys.org>' . "\r\n";
       mail($to,$subject,$msg,$headers);
    } else {
       $error = 1;
@@ -515,11 +440,39 @@ if($user->user_id) {
    }
 } else {
       $error = 1;
-      $errmsg = "Recepient not found";
+      $errmsg = 'Recepient not found '. $recepient;
 }?>
 <script type="text/javascript">
 <?php if(!$error) {?>
    window.location.href='http://ehisys.org/wp-admin/inbox.php?action=success';
+<?php } else { ?>
+   window.location.href='http://ehisys.org/wp-admin/inbox.php?action=fail&err=<?php echo "$errmsg";?>';
+<?php } ?>
+</script>
+<?php
+break;
+
+case 'moveMsg':
+   $action = $_POST['action'];
+   $mid = $_POST['mid'];
+   switch($action) {
+      case "recycle":
+         $qMsg = "UPDATE wp_notices SET active=0, old=0, recycled=1 WHERE id = '$mid'";
+         break;
+      case "old":
+         $qMsg = "UPDATE wp_notices SET active=0, old=1, recycled=0 WHERE id = '$mid'";
+         break;
+      case "new":
+         $qMsg = "UPDATE wp_notices SET active=1, old=0, recycled=0 WHERE id = '$mid'";
+         break;
+      default:
+      ;
+   }
+   $wpdb->query($qMsg);
+?>
+<script type="text/javascript">
+<?php if(!$error) {?>
+   window.location.href='http://ehisys.org/wp-admin/inbox.php';
 <?php } else { ?>
    window.location.href='http://ehisys.org/wp-admin/inbox.php?action=fail&err=<?php echo "$errmsg";?>';
 <?php } ?>

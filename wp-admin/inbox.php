@@ -6,27 +6,19 @@ require_once('./admin.php');
 /** Load WordPress dashboard API */
 require_once(ABSPATH . 'wp-admin/includes/dashboard.php');
 
-wp_dashboard_setup();
-
-wp_enqueue_script( 'dashboard' );
-if ( current_user_can( 'edit_theme_options' ) )
-	wp_enqueue_script( 'customize-loader' );
-if ( current_user_can( 'install_plugins' ) )
-	wp_enqueue_script( 'plugin-install' );
-if ( current_user_can( 'upload_files' ) )
-	wp_enqueue_script( 'media-upload' );
 add_thickbox();
 
-if ( wp_is_mobile() )
-	wp_enqueue_script( 'jquery-touch-punch' );
 
-  $user_id = get_current_user_id();
-  $user_info = get_userdata($user_id);  
+$user_id = get_current_user_id(); //user id
+$user_info = get_userdata($user_id); //all info inside wp_usermeta table
   
 $title = __('Inbox');
 $parent_file = 'landing.php';
 
+global $wpdb;
 
+$query = "select * from wp_users where ID = '$user_id'";
+$uinfo = $wpdb->get_row($query);
 
 include (ABSPATH . 'wp-admin/admin-header.php');
 
@@ -45,39 +37,20 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
 </script>
 <style type="text/css">
   form { float:left; }
-  .msg { width:75%; }
+  .msg { width:73%; }
   .ui-tabs { padding: 0; }
-  .ui-tabs-vertical { width: 90%; }
-  .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 16%; }
-  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
-  .ui-tabs-vertical .ui-tabs-nav li a { display:block; width:83%; }
-  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
-  .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: left; width: 80%;}
+  .ui-tabs-vertical { width: 90%; background: #cccccc url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 0% repeat-x;}
+  .ui-tabs-vertical .ui-tabs-nav { padding: 1%; float: left; width: 15%; border:none; background: #cccccc url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 0% repeat-x;}
+  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; border-radius:10px; }
+  .ui-tabs-vertical .ui-tabs-nav li a { display:block; width:99%; padding:2% 0 2% 1%; text-align:center;}
+  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { border-right-width: 1px; border-right-width: 1px; cursor:pointer; margin: 0 -1px .2em 0; padding-right:25px;border:none;}
+  .ui-tabs-vertical .ui-tabs-panel { padding: 1%; float: left; width: 81%; background-color:#FFF; min-height:150px;}
 </style>
-<div class="wrap">
 <?php include (ABSPATH . 'wp-admin/menuBar.php'); ?>
-<h2><?php echo esc_html( $title ); ?> <?php if(strcmp($user_info->rpr_type_of_account, "Patient") != 0) {?><input style="font-size:13px; padding:4px;" type="button" onclick='TINY.box.show({url:"compose.php",animate:false,mask:false,boxid:"appt"})' value="Compose" /><?php } ?></h2>
+<div class="wrap">
+<h2><?php echo esc_html( $title ); ?> <input style="font-size:13px; padding:4px;" type="button" onclick='TINY.box.show({url:"compose.php",animate:false,mask:false,boxid:"appt"})' value="Compose" /></h2>
 <?php
 global $wpdb;
-
-if(isset($_POST['action'])) {
-   $action = $_POST['action'];
-   $mid = $_POST['mid'];
-   switch($action) {
-      case "recycle":
-         $qMsg = "UPDATE wp_notices SET active=0, old=0, recycled=1 WHERE id = '$mid'";
-         break;
-      case "old":
-         $qMsg = "UPDATE wp_notices SET active=0, old=1, recycled=0 WHERE id = '$mid'";
-         break;
-      case "new":
-         $qMsg = "UPDATE wp_notices SET active=1, old=0, recycled=0 WHERE id = '$mid'";
-         break;
-      default:
-      ;
-   }
-   $wpdb->query($qMsg);
-}
 
    $msgQuery = "Select * from wp_notices where user_id = '$user_id' ORDER BY timestamp DESC";
    $messages = $wpdb->get_results($msgQuery);
@@ -100,22 +73,30 @@ $(function() {
       <table class="msgs">
          <tr>
             <td>#</td>
+            <td>Sender</td>
             <td class="msg">Message</td>
             <td>Action</td>
          </tr>
       <?php
          $i = 1;
          foreach($messages as $msg) {
-            if(strcmp($msg->active, 1) == 0) { ?>
-               <tr>
+            if(strcmp($msg->active, 1) == 0) {
+               if($i % 2 != 0) {?>
+                <tr class="odd">
+               <?php } else { ?>
+                <tr class="even">
+               <?php } ?>
                   <td><?php echo "$i";?></td>
+                  <td class="sender"><?php echo "$msg->sender";?></td>
                   <td class="msg"><?php echo "$msg->msg";?></td>
-                  <td><form action="inbox.php" method="post">
+                  <td><form action="updat.php" method="post">
                          <input type="hidden" name="action" value="old" />
+                         <input type="hidden" name="section" value="moveMsg" />
                          <input type="hidden" name="mid" value="<?php echo "$msg->id";?>" />
                          <button type="submit">Mark as Old</button>
-                      </form><form action="inbox.php" method="post">
+                      </form><form action="updat.php" method="post">
                          <input type="hidden" name="action" value="recycle" />
+                         <input type="hidden" name="section" value="moveMsg" />
                          <input type="hidden" name="mid" value="<?php echo "$msg->id";?>" />
                          <button type="submit">Recycle</button>
                       </form>
@@ -138,22 +119,30 @@ $(function() {
       <table class="msgs">
          <tr>
             <td>#</td>
+            <td>Sender</td>
             <td class="msg">Message</td>
             <td>Action</td>
          </tr>
       <?php
          $i = 1;
          foreach($messages as $msg) {
-            if(strcmp($msg->old, 1) == 0) { ?>
-               <tr>
+            if(strcmp($msg->old, 1) == 0) { 
+              if($i % 2 != 0) {?>
+                <tr class="odd">
+               <?php } else { ?>
+                <tr class="even">
+               <?php } ?>
                   <td><?php echo "$i";?></td>
+                  <td class="sender"><?php echo "$msg->sender";?></td>
                   <td class="msg"><?php echo "$msg->msg";?></td>
-                  <td><form action="inbox.php" method="post">
+                  <td><form action="updat.php" method="post">
                          <input type="hidden" name="action" value="new" />
+                         <input type="hidden" name="section" value="moveMsg" />
                          <input type="hidden" name="mid" value="<?php echo "$msg->id";?>" />
                          <button type="submit">Mark as New</button>
-                      </form><form action="inbox.php" method="post">
+                      </form><form action="updat.php" method="post">
                          <input type="hidden" name="action" value="recycle" />
+                         <input type="hidden" name="section" value="moveMsg" />
                          <input type="hidden" name="mid" value="<?php echo "$msg->id";?>" />
                          <button type="submit">Recycle</button>
                       </form>
@@ -176,18 +165,25 @@ $(function() {
       <table class="msgs">
          <tr>
             <td>#</td>
+            <td>Sender</td>
             <td class="msg">Message</td>
             <td>Action</td>
          </tr>
       <?php
          $i = 1;
          foreach($messages as $msg) {
-            if(strcmp($msg->recycled, 1) == 0) { ?>
-               <tr>
+            if(strcmp($msg->recycled, 1) == 0) { 
+               if($i % 2 != 0) {?>
+                <tr class="odd">
+               <?php } else {?>
+                <tr class="even">
+               <?php } ?>
                   <td><?php echo "$i";?></td>
+                  <td class="sender"><?php echo "$msg->sender";?></td>
                   <td class="msg"><?php echo "$msg->msg";?></td>
-                  <td><form action="inbox.php" method="post">
+                  <td><form action="updat.php" method="post">
                          <input type="hidden" name="action" value="new" />
+                         <input type="hidden" name="section" value="moveMsg" />
                          <input type="hidden" name="mid" value="<?php echo "$msg->id";?>" />
                          <button type="submit">Restore</button>
                       </form>

@@ -43,14 +43,14 @@ include (ABSPATH . 'wp-admin/menuBar.php');
 
 
 <div class="wrap">
-<h2><?php echo esc_html( $title ); ?><?php if(strcmp($uinfo-> site_role, "Developer") != 0) {?> <input type="button" id="createProject" value="Create Project" /><?php } ?></h2>
+<h2><?php echo esc_html( $title ); ?></h2>
 <?php if($uinfo->locked) {?>
 <h3>Your account is locked</h3>
 <?php } else {
-    if(strcmp($uinfo-> site_role, "Developer") != 0) {
+    if(strcmp($user_info-> rpr_type_of_account, "Manager") == 0) {
         include (ABSPATH . 'wp-admin/ownedProjects.php');
     }
-    include (ABSPATH . 'wp-admin/currentProjects.php');
+    include (ABSPATH . 'wp-admin/extra.php');
 ?>
 
 
