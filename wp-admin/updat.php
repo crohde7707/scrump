@@ -19,16 +19,9 @@ $pid = $_POST['pid'];
 $uid = (isset($_POST['uid'])) ? $_POST['uid'] : $user_id;
 //--------- Query -------
 
-$query = "select * from wp_userchart where user_id = '$pid'";
-$chart = $wpdb->get_row($query);
-$numrows=count($query);
-
-$queryA = "select * from wp_userchart where user_id = '$uid'";
-$chart2 = $wpdb->get_row($queryA);
-$numrows2=count($chart2);
-
-$userQ = "select * from wp_userchart where user_id = '$user_id'";
-$user = $wpdb->get_row($userQ);
+$queryA = "select * from wp_users where user_id = '$uid'";
+$uinfo = $wpdb->get_row($queryA);
+$count=count($chart2);
 
 $section = $_POST['section'];
 
@@ -38,213 +31,26 @@ case 'pInfo':
 
 $i = 0;
 $first = $_POST['first'];
-$middle = $_POST['middle'];
 $last = $_POST['last'];
-$dob = (isset($_POST['dob'])) ? $_POST['dob'] : " ";
-$sex = $_POST['sex'];
-$ssn = $_POST['ssn'];
-$marital = $_POST['marital'];
-$address1 = $_POST['address1'];
-$address2 = $_POST['address2'];
-$city = $_POST['city'];
-$state = $_POST['state'];
-$zip = $_POST['zip'];
-$pphone = $_POST['pphone'];
-$sphone = $_POST['sphone'];
 $email = $_POST['email'];
-$ename = explode(" ", $_POST['ename']);
-$efname = $ename[0];
-$elname = $ename[1];
-$ephone = $_POST['ephone'];
-$eemail = $_POST['eemail'];
-$occupation = $_POST['occupation'];
-$ssnreg = '/^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/';
+$phone = $_POST['phone'];
        
-if($numrows2 != 0) {
-  if(strcmp($first, $chart->first_name) != 0) {
-   $pArray[] = "first_name='$first'";
-  }
-  if(strcmp($middle, $chart->middle_i) != 0) {
-   $pArray[] = "middle_i='$middle'";
-  }
-  if(strcmp($last, $chart->last_name) != 0) {
-   $pArray[] = "last_name='$last'";
-  }
-  if(strcmp($sex, $chart->sex) != 0) {
-   $pArray[] = "sex='$sex'";
-  }
-  if(strcmp($ssn, $chart->ssn) != 0) {
-   if(preg_match($ssnreg, $ssn)) {
-      $pArray[] = "ssn='$ssn'";
-   }
-  }
-  if(strcmp($address1, $chart->address1) != 0) {
-   $pArray[] = "address1='$address1'";
-  }
-  if(strcmp($dob, $chart->dob) != 0) {
-   $pArray[] = "dob='$dob'";
-  }
-  if(strcmp($address2, $chart->address2) != 0) {
-   $pArray[] = "address2='$address2'";
-  }
-  if(strcmp($city, $chart->city) != 0) {
-   $pArray[] = "city='$city'";
-  }
-  if(strcmp($state, $chart->state) != 0) {
-   $pArray[] = "state='$state'";
-  }
-  if(strcmp($zip, $chart->zip) != 0) {
-   $pArray[] = "zip='$zip'";
-  }
-  if(strcmp($pphone, $chart->primary_phone) != 0) {
-   $pArray[] = "primary_phone='$pphone'";
-  }
-  if(strcmp($sphone, $chart->secondary_phone) != 0) {
-   $pArray[] = "secondary_phone='$sphone'";
-  }
-  if(strcmp($email, $chart->email) != 0) {
-   $pArray[] = "email='$email'";
-  }
-  if(strcmp($efname, $chart->e_first_name) != 0) {
-   $pArray[] = "e_first_name='$efname'";
-  }
-  if(strcmp($elname, $chart->e_last_name) != 0) {
-   $pArray[] = "e_last_name='$elname'";
-  }
-  if(strcmp($ephone, $chart->e_phone) != 0) {
-   $pArray[] = "e_phone='$ephone'";
-  }
-  if(strcmp($eemail, $chart->e_email) != 0) {
-   $pArray[] = "e_email='$eemail'";
-  }
-  if(strcmp($occupation, $chart->occupation) != 0) {
-   $pArray[] = "occupation='$occupation'";
-  }
-  if(strcmp($marital, $chart->marital) != 0) {
-   $pArray[] = "marital='$marital'";
-  }
-
-  $first = 1;
-  if($pArray) {
-   $queryUp = "UPDATE wp_userchart SET ";
-   foreach($pArray as $i) {
-      if($first < 1) {
-         $queryUp .= ", " . $i;   
-      } else {
-         $queryUp .= $i;
-         $first = 0;
-      }
-   }
-   $queryUp .= " WHERE user_id = '$uid'";
-   $wpdb->query($queryUp);
-  }
-} else {
-   $queryIn = "INSERT INTO wp_userchart (user_id, first_name, middle_i, last_name, dob, sex, ssn, marital, address1, address2, city, state, zip, primary_phone, secondary_phone, email, occupation, e_first_name, e_last_name, e_phone, e_email) VALUES ('$user_id', '$first', '$middle', '$last', '$dob', '$sex', '$ssn', '$marital', '$address1', '$address2', '$city', '$state', '$zip', '$pphone', '$sphone', '$email', '$occupation', '$efname', '$elname', '$ephone', '$eemail')";
-   $wpdb->query($queryIn);
+if(strcmp($first, $uinfo->user_firstName) != 0) {
+   $pArray[] = "user_firstName='$first'";
 }
-if(isset($_POST['initial'])) {?>
-<script type="text/javascript">
-alert("<?php echo "$user_id: $numrows2";?>");
-window.location.href='http://ehisys.org/wp-admin/landing.php';
-</script><?php
-} else {?>
-<script type="text/javascript">
-window.location.href='http://ehisys.org/wp-admin/chart.php?uid=<?php echo "$uid";?>&update=pInfo';
-</script><?php }
-break;
-
-
-case 'mInfo':
-$uid = $_POST['uid'];
-$heightF = $_POST['heightF'];
-$heightI = $_POST['heightI'];
-$curHeight = explode(",", $chart->height);
-$height = $heightF.",".$heightI;
-$weight = $_POST['weight'];
-$ail = $_POST['ail'];
-$ails = implode(",", $ail);
-
-if( (strcmp($heightF, $curHeight[0]) != 0 ) || (strcmp($heightI, $curHeight[1]) != 0) ) {
-   $mArray[] = "height='$height'";
+if(strcmp($last, $uinfo->user_lastName) != 0) {
+   $pArray[] = "user_lastName='$last'";
 }
-if(strcmp($weight, $chart->weight) != 0) {
-   $mArray[] = "weight='$weight'";
+if(strcmp($email, $uinfo->user_email) != 0) {
+   $pArray[] = "user_email='$email'";
 }
-if(strcmp($ails, $chart->ails) != 0) {
-   $mArray[] = "ails='$ails'";
+if(strcmp($phone, $uinfo->user_phone) != 0) {
+   $pArray[] = "user_phone='$phone'";
 }
 
 $first = 1;
-if($mArray) {
-   $queryUp = "UPDATE wp_userchart SET ";
-   foreach($mArray as $i) {
-      if($first < 1) {
-         $queryUp .= ", " . $i;   
-      } else {
-         $queryUp .= $i;
-         $first = 0;
-      }
-   }
-   $queryUp .= " WHERE user_id = '$uid'";
-   $wpdb->query($queryUp);
-}
-?><script type="text/javascript">
-window.location.href='http://ehisys.org/wp-admin/chart.php?uid=<?php echo "$uid";?>&update=mInfo';
-</script><?php
-break;
-
-
-case 'iInfo': 
-$uid = $_POST['uid'];
-$name = $_POST['name'];
-$phone = $_POST['phone'];
-$address = $_POST['address'];
-$city = $_POST['city'];
-$state = $_POST['state'];
-$zip = $_POST['zip'];
-$phname = $_POST['phname'];
-$number = $_POST['number'];
-$gnumber = $_POST['gnumber'];
-$phdob = $_POST['phdob'];
-$phphone = $_POST['phphone'];
-
-  if(strcmp($name, $chart->ins_company) != 0) {
-   $pArray[] = "ins_company='$name'";
-  }
-  if(strcmp($phone, $chart->ins_phone) != 0) {
-   $pArray[] = "ins_phone='$phone'";
-  }
-  if(strcmp($address, $chart->ins_address) != 0) {
-   $pArray[] = "ins_address='$address'";
-  }
-  if(strcmp($city, $chart->ins_city) != 0) {
-   $pArray[] = "ins_city='$city'";
-  }
-  if(strcmp($state, $chart->ins_state) != 0) {
-   $pArray[] = "ins_state='$state'";
-  }
-  if(strcmp($zip, $chart->ins_zip) != 0) {
-   $pArray[] = "ins_zip='$zip'";
-  }
-  if(strcmp($phname, $chart->ins_phname) != 0) {
-   $pArray[] = "ins_phname='$phname'";
-  }
-  if(strcmp($number, $chart->ins_number) != 0) {
-   $pArray[] = "ins_number='$number'";
-  }
-  if(strcmp($gnumber, $chart->ins_gnumber) != 0) {
-   $pArray[] = "ins_gnumber='$gnumber'";
-  }
-  if(strcmp($phdob, $chart->ins_phdob) != 0) {
-   $pArray[] = "ins_phdob='$phdob'";
-  }
-  if(strcmp($phphone, $chart->ins_phphone) != 0) {
-   $pArray[] = "ins_phphone='$phphone'";
-  }
-
-  $first = 1;
   if($pArray) {
-   $queryUp = "UPDATE wp_userchart SET ";
+   $queryUp = "UPDATE wp_users SET ";
    foreach($pArray as $i) {
       if($first < 1) {
          $queryUp .= ", " . $i;   
@@ -253,15 +59,16 @@ $phphone = $_POST['phphone'];
          $first = 0;
       }
    }
-   $queryUp .= " WHERE user_id = '$uid'";
+   $queryUp .= " WHERE ID = '$uid'";
    $wpdb->query($queryUp);
-  }?>
-<script type="text/javascript">
-   window.location.href='http://ehisys.org/wp-admin/chart.php?uid=<?php echo "$uid";?>&update=iInfo';
-</script>
-<?php
-break;
+  }
 
+?>
+<script type="text/javascript">
+window.location.href='http://ehisys.org/wp-admin/personalInfo.php?&update=success';
+</script>
+<?php 
+break;
 
 case 'enterT':
 $tname = $_POST['test_name'];
@@ -408,6 +215,28 @@ $uid = $_POST['uid'];
             <?php
          }
    }
+
+break;
+
+case 'newProject':
+$uid = $_POST['uid'];
+$projName = $_POST['projName'];
+$projDesc = $_POST['projDesc'];
+
+$nQuery = "INSERT INTO wp_proj (owner_ID, name, description) VALUES ('$uid', '$projName', '$projDesc')";
+$wpdb->query($nQuery);
+
+$pQuery = "SELECT ID from wp_proj WHERE name = '$projName'";
+$projID = $wpdb->get_var($pQuery);
+
+$rQuery = "INSERT INTO wp_roles (proj_ID, user_ID, role) VALUES ('$projID', '$uid', 'Project Owner')";
+$wpdb->query($rQuery);
+
+?>
+<script type="text/javascript">
+   window.location.href='http://ehisys.org/wp-admin/landing.php?action=success';
+</script>
+<?php
 
 break;
 

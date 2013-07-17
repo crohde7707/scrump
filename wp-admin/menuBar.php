@@ -8,7 +8,7 @@
    <ul>
       <li><a href="/wp-admin/landing.php">Home</a></li>
       <li><a href="/wp-admin/inbox.php">Inbox</a> <?php if($count) { ?><span class="haveMessages"><?php echo $count; ?></span><?php } else { ?><span class="noMessages"><?php echo $count; ?></span><?php } ?></li>
-      <li><a href="#">Profile</a></li>
+      <li><a href="/wp-admin/personalInfo.php">Profile</a></li>
       <?php if(strcmp($uinfo-> site_role, "Admin")==0) { 
           /*Display Only If User in an admin*/
           echo '<li><a href="/wp-admin/manageusers.php">Manage Users</a></li>'; 

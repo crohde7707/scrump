@@ -14,9 +14,6 @@ $user_id = get_current_user_id(); //user id
 </head>
 
 <body>
-  <script type="text/javascript">
-     console.log("<?php echo '$uid\n$user_id';?>");
-  </script>
   <div id="composeMsg">
    <h4>Compose Message</h4>
    <form action="updat.php" method="post">

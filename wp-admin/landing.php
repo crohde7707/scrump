@@ -24,14 +24,13 @@ global $wpdb;
 /*************** Add query to update user role in database ****************/
 $query = "select * from wp_users where ID = '$user_id'";
 $uinfo = $wpdb->get_row($query);
-if(strcmp($uinfo-> site_role, "")==0) { 
-    $qu = "UPDATE wp_users SET site_role='Developer' WHERE ID = '$user_id'";
-    $wpdb->query($qu);
-  //update wp_users with site role
-}
 /**************************************************************************/
   
-$title = __(' Welcome, ' . $uinfo->user_login . '!');
+if($uinfo->user_firstName) {
+    $title = __(' Welcome, ' . $uinfo->user_firstName . ' ' . $uinfo->user_lastName . '!');
+} else {
+    $title = __(' Welcome, ' . $uinfo->user_login . '!');
+}
 $parent_file = 'index.php';
 
 include (ABSPATH . 'wp-admin/admin-header.php');

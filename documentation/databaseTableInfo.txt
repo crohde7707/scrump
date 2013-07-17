@@ -1,8 +1,8 @@
 Defining the tables in the database
-    -updated 6/26/13
+    -updated 7/17/13 by nik
 
 Item(story) table
- -    wp_items
+ -    wp_stories (renamed from wp_items)
    .	ID (unique)
    .	name 
    .	priority
@@ -32,8 +32,10 @@ Workers table (who's working on each item)
 Sprint table
  -	wp_sprint
    .	ID
+   .    proj_ID //ADDed
    .	start_date
    .	end_date
+   .    completed_date
    .	description
 WP-users
  -	wp_users

@@ -196,6 +196,53 @@ h3 {
     padding-bottom:15px;
 }
 
+/*******project css*********/
+.working {
+    
+}
+.completed {
+    
+}
+.projectPageWidget {
+    width:30%;
+}
+.projectPageWidget h3 {
+    margin: 0;
+}
+.projectPageWidget .addStory {
+    float:right;
+}
+.list-stories {
+    width:100%;
+    border:1px solid #FFF;
+    border-radius:6px;
+    min-height:250px;
+    display:block;
+}
+.list-stories tbody {
+    width:100%;
+    display:block;
+}
+.story-row {
+    width:100%;
+    display:block;
+    background-color:#DDD;
+    color:#000;
+    height:20px;
+}
+.story-row td {
+    display:block;
+    float:left;
+}
+.story-img,
+.story-points {
+    width:5%;
+}
+.story-name {
+    width:90%;
+}
+/***************************/
+
 /*******jquery fixes********/
 .ui-widget-overlay {
     background: #aaaaaa url('images/ui-bg_flat_0_aaaaaa_40x100.png') 50% 0% repeat repeat !important;

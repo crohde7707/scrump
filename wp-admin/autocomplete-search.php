@@ -9,7 +9,8 @@ global $wpdb;
 
 ?>
 <head>
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/vader/jquery-ui.css" />
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/vader/jquery-ui.css" type="text/css" rel="stylesheet" />
+
 <html lang="en">
 
 <script>
@@ -81,11 +82,8 @@ if (isset($_POST['go']) && !empty($_POST['email'])){
         
     
 ?>
-<style>
-#radio1 .ui-button:hover {
-    color:transparent;
-}
-</style>
+
+
 <!--Div for dialog Box once open display current user statuses-->
 <div id="dialog" title="<?php echo 'Editing User '. $username; ?>">
  <p>All form fields are required.</p>

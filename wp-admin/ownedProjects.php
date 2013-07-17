@@ -6,15 +6,16 @@
 
 ?>
 <div id="newProject">
-    <form action="contact.php" method="post" id="contact">
-        <input type="hidden" name="action" value="sent" />
+    <form action="updat.php" method="post" id="newProject">
+        <input type="hidden" name="uid" value="<?php echo "$user_id";?>" />
+        <input type="hidden" name="section" value="newProject">
         <label for="projName" ><?php _e('Project Name:') ?><br />
             <input type="text" name="projName" id="projName" class="input" size="25" />
         </label><br />
         <label for="projDesc" ><?php _e('Project Description:') ?><br />
             <textarea name="projDesc" id="projDesc" class="input" rows="10" cols="50"></textarea>
         </label><br />
-        <button type="submit">Submit</button>
+        <button type="submit">Create</button>
     </form>
 </div>
 <div id="ownedProjects" class="projectWrapper"> <!-- id="currentProjects" -->
@@ -42,7 +43,12 @@
             <?php 
             $i++;
             }
-         }?>
+         }
+         if($i == 1) { ?>
+            <tr class="odd">
+              <td colspan="3">You currently own 0 projects</td>
+            </tr>
+         <?php } ?>
     </table>
     
 </div>
@@ -59,8 +65,8 @@
      
     $( "#newProject" ).dialog({
       autoOpen: false,
-      height: 400,
-      width: 600,
+      height: 350,
+      width: 450,
       modal: true,
       collapsible: true,
       animated: false,
