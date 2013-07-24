@@ -1,0 +1,42 @@
+Tony:
+ * Add & Edit Story Buttons
+   * Study markup of stories in icebox portion of my project (pid=2; i made you a member)
+   * Refer to whiteboard for layout of that module
+     * Type: radio button or dropdown
+     * Points: Dropdown
+     * Status: Dropdown
+   * Focus on Story specific info first, we will take care of Tasks afterwards (will probably be a seperate module loaded in that module (http://ehisys.org/wp-includes/images/40020271.jpg)
+
+Kevin:
+ * Delete Project Button
+   * First get just the project deletion working
+   * Afterwards get the deletion of stories before deletion of project working
+   * After that, get the deletion of tasks before deletion of stories working
+   * After that, get the deletion of roles from wp_roles where the proj_ID = id of project you are deleting
+
+Joe:
+ * Finish working on Edit Project Button, consult with Marco if you have questions today:
+  * all fields need <label for=""> markup added to them
+   * Example:
+     <label for="projName">Username<br>
+    	<input type="text" name="projName" id="projName" value="<?php echo $proj->name; ?> size="40">
+     </label>
+  * Lower values for textarea's rows and cols to look nicer with modal popup (make it fit all in the screen with no scrollbars)
+
+Marco:
+ * List of Members:
+   * Return to Project Button
+ * Manage Users:
+   * Cancel Button for modal
+ * Help Joe with his portion
+
+Wes:
+ * Add Finish Date field in Create Project modal
+ * Work with Nikolas for SQL injection testing as he progresses.
+
+Nikolas:
+ * Clean up updat.php (i marked cases that needed to be removed)
+ * Update queries in database to be SQL Injection Proof:
+   * Use prepare statements
+   * Practice with Profile page or Inbox page (internal portion of query only, external broken atm)
+   * Once you feel its protected, contact Wes for SQL injection attempt

@@ -70,7 +70,7 @@ window.location.href='http://ehisys.org/wp-admin/personalInfo.php?&update=succes
 <?php 
 break;
 
-case 'enterT':
+case 'enterT': //remove
 $tname = $_POST['test_name'];
 $tdesc = $_POST['test_description'];
 $uid = $_POST['uid'];
@@ -82,7 +82,7 @@ $wpdb->query($queryEnterTest);?>
 <?php
 break;
 
-case 'enterDiag':
+case 'enterDiag': //remove
 $uid = $_POST['uid'];
 $diag = $_POST['diag'];
 $curTime = date("Y-m-d H:i:s");
@@ -95,7 +95,7 @@ $wpdb->query($queryEDiag);
 <?php
 break;
 
-case 'enterCond':
+case 'enterCond': //remove
 $uid = $_POST['uid'];
 $cond = $_POST['cond'];
 $curTime = date("Y-m-d H:i:s");
@@ -108,7 +108,7 @@ $wpdb->query($queryCDiag);
 <?php
 break;
 
-case 'sendT':
+case 'sendT': //remove
 $uid = $_POST['uid'];
 $tid = $_POST['test'];
 $email = "lab@ehisys.org";
@@ -129,7 +129,7 @@ window.location.href='http://ehisys.org/wp-admin/chart.php?uid=<?php echo "$uid"
 <?php
 break;
 
-case 'sendReceipt':
+case 'sendReceipt': //remove
 $uid = $_POST['uid'];
 $rc = $_POST['rc'];
 
@@ -152,7 +152,7 @@ window.location.href='http://ehisys.org/wp-admin/chart.php?uid=<?php echo "$uid"
 <?php
 break;
 
-case 'sendPersc':
+case 'sendPersc': //remove
 $uid = $_POST['uid'];
 $perc = $_POST['perc'];
 
@@ -174,7 +174,7 @@ window.location.href='http://ehisys.org/wp-admin/chart.php?uid=<?php echo "$uid"
 <?php
 break;
 
-case 'transmitIns':
+case 'transmitIns': //remove
 $useremail = $user->email;
 $email = "insurance@ehisys.org";
 $to = $email;
@@ -308,6 +308,12 @@ case 'moveMsg':
 </script>
 <?php
 break;
+
+case 'editProject':
+    break;
+
+case 'deleteProject':
+    break;
 
 default:
 echo "default";

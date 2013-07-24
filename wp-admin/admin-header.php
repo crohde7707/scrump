@@ -51,6 +51,7 @@ $admin_body_class = preg_replace('/[^a-z0-9_-]+/i', '-', $hook_suffix);
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="./js/swipe.min.js"></script>
 <script type="text/javascript">
 addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
 var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
@@ -127,7 +128,7 @@ if(strcmp($user_info-> rpr_type_of_account, "Admin") == 0) {
 if(strcmp($user_info-> rpr_type_of_account, "Admin") == 0) {
    do_action('in_admin_header');
 } else {?>
-<style type="text/css">html.wp-toolbar {padding-top:0px} #wpcontent {margin-left:0px;} .wrap {margin:0 15px 0px 40px}</style>
+<style type="text/css">html.wp-toolbar {padding-top:0px} #wpcontent {margin-left:0px;} .wrap {margin:0 40px 0px 40px}</style>
 <?php } ?>
 
 <div id="wpbody">

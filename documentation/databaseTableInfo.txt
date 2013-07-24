@@ -1,14 +1,16 @@
 Defining the tables in the database
-    -updated 7/17/13 by nik
+    -updated 7/22/13 by nik
 
 Item(story) table
  -    wp_stories (renamed from wp_items)
    .	ID (unique)
    .	name 
    .	priority
-   .	description
+   -    priority_class   
+   .	stories_description
    .	owner_ID ( working) can be NULL
-   .	container_ID
+   .    requester_ID 
+   .	container_ID    - can be 1-4
    . 	status
    .	points
    .	sprint_ID
@@ -32,16 +34,19 @@ Workers table (who's working on each item)
 Sprint table
  -	wp_sprint
    .	ID
-   .    proj_ID //ADDed
-   .	start_date
+   .    proj_ID 
+   .	start_date - type(date)
    .	end_date
    .    completed_date
-   .	description
+   .	sprint_description
 WP-users
  -	wp_users
    .	ID
    .	user_nicename
    .	user_email
+   .    user_firstName
+   .    user_lastName
+   .    user_phone
    .    site_role
    .    locked
 WP-roles
@@ -56,4 +61,29 @@ WP-proj
    .    owner_ID
    .    name
    .    description
+   
+Changelog table
+ - wp_changelog
+   .    ID
+   .    date        - type(timestamp) defaults to current time
+   .    user_ID     - person who made the change
+   .    type        - story or task 
+   .    item_ID     - either (story or task ID)
+   .    description
+ 
+--------------------------------
+DATABASE CHANGELOG
+
+07/22   - description fields renamed with table-name_description to be less ambiguous 
+        - priority_class added to wp_stories  
+
+
+--------------------------------
+ 
 The panes on the page will be known as containers
+
+
+TRIGGERS - http://dev.mysql.com/doc/refman/5.0/en/create-trigger.html
+    - listen to wp_stories & wp_tasks
+        - any change (insert, delete, update)
+            - insert wp_changelog to log it

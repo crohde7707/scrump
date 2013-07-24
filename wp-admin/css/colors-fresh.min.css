@@ -201,45 +201,129 @@ h3 {
     
 }
 .completed {
-    
+    margin-top:10px;
+}
+#completedWidget {
+    width:99%;
 }
 .projectPageWidget {
-    width:30%;
+    width:32%;
+    float:left;
+    margin:0 0.5%;
 }
-.projectPageWidget h3 {
+.projectPageWidget h3,
+#completedWidget h3 {
     margin: 0;
 }
-.projectPageWidget .addStory {
+.projectPageWidget .contName {
+    float:left;
+}
+.projectPageWidget thead,
+.projectPageWidget thead > tr,
+.projectPageWidget thead > tr > td,
+#completedWidget thead,
+#completedWidget thead > tr
+#completedWidget thead > tr > td {
+    display:block;
+}
+.projectPageWidget thead,
+#completedWidget thead {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+    border-radius: 6px 6px 0 0;
+    padding: 5px;
+    color: #000;
+    border-bottom:1px solid #000;
+}
+.projectPageWidget .addStory,
+.projectPageWidget .toggleSprint {
     float:right;
 }
 .list-stories {
     width:100%;
-    border:1px solid #FFF;
+    border:1px solid #000;
     border-radius:6px;
     min-height:250px;
     display:block;
+    box-shadow:2px 2px 4px #000;
+    background-color:#BBB;
 }
 .list-stories tbody {
     width:100%;
     display:block;
+    max-height:300px;
+    overflow-y:auto;
 }
 .story-row {
     width:100%;
     display:block;
-    background-color:#DDD;
     color:#000;
-    height:20px;
+    height:25px;
+    border-bottom: 1px solid #FFF;
+    padding-top:5px;
+    cursor:pointer;
+}
+.story-row.highest {
+    background-color:#F00;
+    color:#FFF;
+}
+.story-row.high {
+    background-color:#F60;
+    color:#FFF;
+}
+.story-row.medium {
+    background-color:#FF0;
+}
+.story-row.low {
+    background-color:#9F0;
+}
+.story-row.lowest {
+    background-color:#0F0;
 }
 .story-row td {
     display:block;
     float:left;
+    height:25px;
+    line-height:20px;
 }
-.story-img,
+.story-img {
+    width:20px;
+    padding-left:1%;
+}
+.story-img.story {
+    background: transparent url('/wp-admin/images/story-image-sprite.png') no-repeat -48px 0px;
+}
+.story-img.chore {
+    background: transparent url('/wp-admin/images/story-image-sprite.png') no-repeat 2px 0px;
+}
+.story-img.bug {
+    background: transparent url('/wp-admin/images/story-image-sprite.png') no-repeat -23px 0px;
+}
 .story-points {
     width:5%;
+    text-align:center;
 }
 .story-name {
     width:90%;
+}
+#deleteProject {
+    float:right;
+    margin-top:5px;
+}
+@media screen and (max-device-width: 480px) {
+  .working {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+  }
+  .swipe-wrap {
+    overflow: hidden;
+    position: relative;
+  }
+  .swipe-wrap > div {
+    float:left;
+    width:100%;
+    position: relative;
+  }
 }
 /***************************/
 
